@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OptionsScreen : Menu
 {
+    [SerializeField] private GameObject mouseToggleSprite;
+    [SerializeField] private Sprite buttonUp;
+    [SerializeField] private Sprite buttonDown;
+    [SerializeField] private Slider brightnessSlider;
     public override void OpenMenu()
     {
         base.OpenMenu();
@@ -16,5 +21,19 @@ public class OptionsScreen : Menu
         base.CloseMenu();
         Cursor.lockState = CursorLockMode.None;
         Debug.Log("Options Menu Closed");
+    }
+
+    public void swapMouseVisibility()
+    {
+        if (Cursor.visible)
+        {
+            Cursor.visible = false;
+            mouseToggleSprite.GetComponent<Image>().sprite = buttonDown;
+        }
+        else
+        {
+            Cursor.visible = true;
+            mouseToggleSprite.GetComponent<Image>().sprite = buttonUp;
+        }
     }
 }
