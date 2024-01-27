@@ -26,9 +26,10 @@ public class GameScreen : Menu
 
     public void OnButtonClicked()
     {
-        if (puzzleGrid.checkForWinner())
+        if (puzzleGrid.CheckForWinner())
         {
-
+            Debug.Log("win");
+            puzzleGrid.Freeze();
         }
     }
 }

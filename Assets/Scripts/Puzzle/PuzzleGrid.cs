@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PuzzleGrid : MonoBehaviour
 {
     private PuzzleSwitch[] puzzleSwitches;
-    public delegate void functionIfWin();
-
     public delegate void ButtonClickHandler();
     public event ButtonClickHandler OnButtonClicked;
 
@@ -35,8 +34,7 @@ public class PuzzleGrid : MonoBehaviour
         }
     }
 
-    // Got help from chatgpt with this: "how do i make a function accept a lambda as a parameter, and make it optional"
-    public bool checkForWinner(functionIfWin lambda = null)
+    public bool CheckForWinner()
     {
         foreach (PuzzleSwitch sw in puzzleSwitches)
         {
@@ -46,10 +44,23 @@ public class PuzzleGrid : MonoBehaviour
             }
         }
 
-        // Check if a lambda is provided before invoking it
-        lambda?.Invoke();
-
         return true;
+    }
+
+    public void Freeze()
+    {
+        foreach (PuzzleSwitch puzzleSwitch in puzzleSwitches)
+        {
+            puzzleSwitch.gameObject.GetComponent<Button>().enabled = false;
+        }
+    }
+
+    public void Unfreeze()
+    {
+        foreach (PuzzleSwitch puzzleSwitch in puzzleSwitches)
+        {
+            puzzleSwitch.gameObject.GetComponent<Button>().enabled = true;
+        }
     }
 
     public void ButtonClicked()
