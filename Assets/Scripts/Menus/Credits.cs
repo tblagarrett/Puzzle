@@ -8,13 +8,11 @@ public class Credits : Menu
     {
         base.OpenMenu();
         Cursor.lockState = CursorLockMode.None;
-        Debug.Log("Credits Menu Opened");
     }
 
     public override void CloseMenu()
     {
         base.CloseMenu();
         Cursor.lockState = CursorLockMode.None;
-        Debug.Log("Credits Menu Closed");
     }
 }

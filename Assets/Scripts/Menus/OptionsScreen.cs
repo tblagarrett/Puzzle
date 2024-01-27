@@ -14,14 +14,12 @@ public class OptionsScreen : Menu
     {
         base.OpenMenu();
         Cursor.lockState = CursorLockMode.None;
-        Debug.Log("Options Menu Opened");
     }
 
     public override void CloseMenu()
     {
         base.CloseMenu();
         Cursor.lockState = CursorLockMode.None;
-        Debug.Log("Options Menu Closed");
     }
 
     public void swapMouseVisibility()

@@ -8,13 +8,11 @@ public class GameScreen : Menu
     {
         base.OpenMenu();
         Cursor.lockState = CursorLockMode.None;
-        Debug.Log("Game Menu Opened");
     }
 
     public override void CloseMenu()
     {
         base.CloseMenu();
         Cursor.lockState = CursorLockMode.None;
-        Debug.Log("Game Menu Closed");
     }
 }
