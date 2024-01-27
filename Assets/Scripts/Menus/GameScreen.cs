@@ -5,11 +5,14 @@ using UnityEngine;
 public class GameScreen : Menu
 {
     PuzzleGrid puzzleGrid;
+    UIManager uiMan;
     private void Start()
     {
         // Whenever a button is clicked, we run this function
         puzzleGrid = GetComponentInChildren<PuzzleGrid>();
         puzzleGrid.OnButtonClicked += OnButtonClicked;
+
+        uiMan = UIManager.Instance;
     }
 
     public override void OpenMenu()
@@ -29,8 +32,7 @@ public class GameScreen : Menu
     {
         if (puzzleGrid.CheckForWinner())
         {
-            Debug.Log("win");
-            puzzleGrid.Freeze();
+            uiMan.GoToMenu(GameMenu.GameOver);
         }
     }
 }
