@@ -24,6 +24,7 @@ public class GameScreen : Menu
         Cursor.lockState = CursorLockMode.None;
     }
 
+    // Help from ChatGPT on learning how to get GameScreen to know when a button is clicked
     public void OnButtonClicked()
     {
         if (puzzleGrid.CheckForWinner())
