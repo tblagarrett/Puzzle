@@ -9,6 +9,7 @@ public enum GameMenu
     Game,
     Options,
     Credits,
+    GameOver,
 }
 
 public class UIManager : MonoBehaviour
