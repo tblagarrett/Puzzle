@@ -9,6 +9,7 @@ public class OptionsScreen : Menu
     [SerializeField] private Sprite buttonUp;
     [SerializeField] private Sprite buttonDown;
     [SerializeField] private Slider brightnessSlider;
+    [SerializeField] private Image brightnessOverlay;
     public override void OpenMenu()
     {
         base.OpenMenu();
@@ -35,5 +36,10 @@ public class OptionsScreen : Menu
             Cursor.visible = true;
             mouseToggleSprite.GetComponent<Image>().sprite = buttonUp;
         }
+    }
+
+    public void changeBrightness()
+    {
+        brightnessOverlay.color = new Color(brightnessOverlay.color.r, brightnessOverlay.color.g, brightnessOverlay.color.b, 1 - brightnessSlider.value);
     }
 }
