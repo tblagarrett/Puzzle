@@ -84,6 +84,19 @@ public class PuzzleSwitch : MonoBehaviour
         if (ButtonClick != null) { ButtonClick(); }
     }
 
+    public void setSwitchState(PuzzleSwitchState state)
+    {
+        _state = state;
+        if (_state == PuzzleSwitchState.on)
+        {
+            this.GetComponent<Image>().sprite = onSprite;
+        }
+        else
+        {
+            this.GetComponent<Image>().sprite = offSprite;
+        }
+    }
+
     public PuzzleSwitchState state { get { return _state; } }
 
     // Enum to represent directions

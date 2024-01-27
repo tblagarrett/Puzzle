@@ -67,4 +67,12 @@ public class PuzzleGrid : MonoBehaviour
     {
         if (OnButtonClicked != null) { OnButtonClicked(); }
     }
+
+    public void Clear()
+    {
+        foreach (PuzzleSwitch puzzleSwitch in puzzleSwitches)
+        {
+            puzzleSwitch.setSwitchState(PuzzleSwitchState.off);
+        }
+    }
 }
