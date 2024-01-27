@@ -43,8 +43,12 @@ public class UIManager : MonoBehaviour
         foreach (GameObject menu in Menus)
         {
             if (menu.GetComponent<Menu>() == null)
+            {
                 Debug.LogError("No Menu found on " + menu.name);
+                continue;
+            }
             menu.GetComponent<Menu>().CloseMenu(); //make sure all menus start closed
+            menu.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         }
         OpenMenu(startingMenu); //open a starting menu if one is declared
 
@@ -89,6 +93,7 @@ public class UIManager : MonoBehaviour
     private bool OpenMenu(GameMenu Menu)
     {
         Menus[(int)Menu].GetComponent<Menu>().OpenMenu();
+        currentMenu = Menu;
 
         return true;
     }
