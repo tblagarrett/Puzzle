@@ -11,6 +11,10 @@ public class PuzzleSwitch : MonoBehaviour
     public PuzzleSwitchState startingState;
     [SerializeField] private Sprite offSprite;
     [SerializeField] private Sprite onSprite;
+
+    public delegate void ButtonClickHandler();
+    public event ButtonClickHandler ButtonClick;
+
     // References to Neighbors
     private PuzzleSwitch[] puzzleSwitches;
     [SerializeField] private PuzzleSwitch up;
@@ -75,6 +79,9 @@ public class PuzzleSwitch : MonoBehaviour
                 puzzleSwitch.swapSwitchState();
             }
         }
+
+        // Tell the parent class that a move was made
+        if (ButtonClick != null) { ButtonClick(); }
     }
 
     public PuzzleSwitchState state { get { return _state; } }
